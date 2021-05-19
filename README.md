@@ -101,6 +101,38 @@ screen example():
         bar_vertical True
 ```
 
+## Actions
+
+Every User Interface Statement which can be interacted with, such as a `button`, can take an `action` property which defines what happens when the element is interacted with. Other User Interface Statements such as the `bar` may also take an optional `action` property which will run in specific conditions, such as `hovered`.
+
+Here is a list of screen actions you may use: [Screen Actions](https://www.renpy.org/doc/html/screen_actions.html)
+
+Let's use the `button` User Interface Statement as our example, this time.
+
+![](https://i.imgur.com/ZnSw6L3.png)
+
+The `button` statement takes an `action` property which is configured to serve multiple purposes. It takes one or more screen action(s) from the page linked above, but also controls if the button is `sensitive` and/or `selected` automatically if these properties have not been explicitly given.
+
+Other optional action properties such as `hovered` also take a screen action, and can sometimes be found in other statements such as the `bar`, which would allow an `action` to run when the bar is hovered.
+
+### Syntax
+
+The proper syntax for the `action` statements is the same as any other User Interface Statements properties. In the example below, we are creating a button which jumps to a label when clicked, and notifies if the button is hovered. Naturally, in a practical use, you should give the button some style properties so that it is an actual button.
+
+
+```py
+screen example():
+
+    # The User Interface Statement
+    button:
+
+        # Screen Actions
+        action Jump("a_label")
+        hovered Notify("Hovering the button!")
+```
+
+Both actions used above are random examples from the [Screen Actions](https://www.renpy.org/doc/html/screen_actions.html) documentation, but the actions themselves could be anything from the documentation.
+
 ## Conclusion
 
 And there you have it - you should now be a bit more familiar with how to read the screen language documentation. Equipped with newly acquired knowledge, go forth and create!
